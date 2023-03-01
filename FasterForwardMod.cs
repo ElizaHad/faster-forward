@@ -18,7 +18,7 @@ namespace FasterForward;
 
 public class FasterForwardMod : BloonsTD6Mod
 {
-    private static int speed = 3;
+    private static double speed = 3;
 
     private static readonly ModSettingHotkey Speed3 = new(KeyCode.F1)
     {
@@ -85,11 +85,11 @@ public class FasterForwardMod : BloonsTD6Mod
         {
             PopupScreen.instance.ShowSetValuePopup("Custom Fast Forward Speed",
                 "Sets the Fast Forward speed to the specified value",
-                new Action<int>(i =>
+                new Action<double>(i =>
                 {
-                    if (i < 1)
+                    if (i < .01)
                     {
-                        i = 1;
+                        i = .01;
                     }
 
                     if (i > 100)
